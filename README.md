@@ -1,7 +1,7 @@
 # route53_weighted_records
 Python package to manage over 100 weighted records under one url in AWS Route53.
 
-## The Problem
+## The Problem This Package Solves
 
 If you want to distribute requests to more than 100 endpoints behind a single
 url in Route53, you have to manage a tree-like structure of records since
@@ -22,18 +22,20 @@ http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
 
 ### Code Examples
 
+```
 from route53weightedrecords import Route53Manager
 
-// Create the manager (replace the hosted zone id and url with your own)
-manager = Route53Manager("xxxxxxxxxxxxx", "my-cool-url.com.")
+# Create the manager (replace the hosted zone id and url with your own)
+manager = Route53Manager("my-hosted-zone-id", "my-cool-url.com.")
 
-// Create the record sets
+# Create the record sets
 manager.create_record_sets(["192.168.1.1", "192.168.1.2", "192.168.1.3"])
 
-// The DNS entries should now show up in your Route53 console the proper weights!
+# The DNS entries should now show up in your Route53 console the proper weights!
 
-// Delete the record sets
+# Delete the record sets
 manager.delete_record_sets(["192.168.1.1", "192.168.1.2", "192.168.1.3"])
+```
 
 ## Considerations
 
